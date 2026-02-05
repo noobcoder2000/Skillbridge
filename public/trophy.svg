@@ -1,0 +1,4 @@
+<!-- public/trophy.svg -->
+<svg xmlns="http://www.w3.org/2000/svg" fill="gold" viewBox="0 0 24 24" stroke="goldenrod">
+  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 21h8m-4-4v4m4-8c3 0 4-2 4-4V5h-4m-8 8c-3 0-4-2-4-4V5h4m0 0V3h8v2"></path>
+</svg>

@@ -1,0 +1,4 @@
+<!-- public/fire.svg -->
+<svg xmlns="http://www.w3.org/2000/svg" fill="orange" viewBox="0 0 24 24" stroke="orange">
+  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2s4 4 0 8c-4-4-4-8-4-8s-4 4-4 8c0 6 8 12 8 12s8-6 8-12c0-4-4-8-4-8z"></path>
+</svg>
