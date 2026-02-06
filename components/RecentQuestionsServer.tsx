@@ -14,9 +14,13 @@ export default async function RecentQuestionsServer({ session }: { session: Sess
     },
   });
 
+  if (!user) {
+    return <RecentQuestions questions={[]} />;
+  }
+
   const questions = await prisma.question.findMany({
     where: {
-      userId: user?.id,
+      userId: user.id,
     },
     orderBy: { createdAt: "desc" },
     take: 5,

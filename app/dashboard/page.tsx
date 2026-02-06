@@ -13,18 +13,24 @@ export const dynamic = "force-dynamic";
 export default async function DashboardPage() {
   const session = await getServerSession(authOptions);
   if (!session) redirect("/");
+  const email = session.user?.email;
+  if (!email) redirect("/");
 
   const user = session.user;
 
-  // New: Fetch user from database using email
-  const dbUser = await prisma.user.findUnique({
-    where: {
-      email: user?.email!,
+  // Ensure the user exists in DB (avoid null email / missing record edge cases in production)
+  const dbUser = await prisma.user.upsert({
+    where: { email },
+    update: {},
+    create: {
+      email,
+      name: user.name ?? null,
+      image: user.image ?? null,
     },
   });
 
   const questions = await prisma.question.findMany({
-    where: { userId: dbUser?.id },
+    where: { userId: dbUser.id },
     orderBy: { createdAt: "desc" },
     include: { user: true },
   });
