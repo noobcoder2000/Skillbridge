@@ -1,11 +1,12 @@
 import Image from "next/image";
-import { getServerSession } from 'next-auth';
-import { authOptions } from '@/app/api/auth/[...nextauth]/route';
+import { getServerSession } from "next-auth/next";
+import { authOptions } from "@/lib/auth";
 import AuthPrompt from '@/components/AuthPrompt';
 import AuthenticatedContent from '@/components/AuthenticatedContent';
 import RecentQuestionsServer from "@/components/RecentQuestionsServer";
 import AskQuestionForm from "@/components/askquestionsform";
 
+export const dynamic = "force-dynamic";
 
 export default async function HomePage() {
   const session = await getServerSession(authOptions);

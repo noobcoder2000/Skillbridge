@@ -1,12 +1,14 @@
 // app/dashboard/page.tsx
-import { getServerSession } from "next-auth";
-import { authOptions } from "../api/auth/[...nextauth]/route";
+import { getServerSession } from "next-auth/next";
+import { authOptions } from "@/lib/auth";
 import { redirect } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import LeaderboardModal from '@/components/LeaderboardModal';
 import { prisma } from "@/lib/prisma"; // Make sure this path is correct
 import RecentQuestions from "@/components/RecentQuestions";
+
+export const dynamic = "force-dynamic";
 
 export default async function DashboardPage() {
   const session = await getServerSession(authOptions);
